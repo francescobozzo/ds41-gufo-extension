@@ -20,7 +20,7 @@ Notable user-facing changes are recorded here. Versions follow `version` in
 ### Dependencies
 
 * **Gufo:** pinned to `a27bbf98`. The extension now needs Gufo's extension
-  API 0.3.0 or later, whose text runners must declare a scheduling profile.
+  API 0.3.3 or later, whose text runners must declare a scheduling profile.
   It declares 512-token prompt passes beside decoding sessions, run unsplit
   with up to 8 sessions per decode step, which keeps the passes the 0.2 host
   gave it.
