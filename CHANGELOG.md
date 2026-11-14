@@ -17,6 +17,14 @@ Notable user-facing changes are recorded here. Versions follow `version` in
   change
   ([E122](docs/models/deepseek-v4.1-flash/EXPERIMENTS.md#e122--wait-for-queued-writes-before-a-prompt-cache-capture-retained)).
 
+### Dependencies
+
+* **Gufo:** pinned to `a27bbf98`. The extension now needs Gufo's extension
+  API 0.3.0 or later, whose text runners must declare a scheduling profile.
+  It declares 512-token prompt passes beside decoding sessions, run unsplit
+  with up to 8 sessions per decode step, which keeps the passes the 0.2 host
+  gave it.
+
 ## 0.2.0 (2026-11-11)
 
 Built on upstream Gufo `0e2de43e` (0.33.0); needs extension API 0.2.17 or
