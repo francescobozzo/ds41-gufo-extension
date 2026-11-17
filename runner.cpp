@@ -335,9 +335,10 @@ public:
                 .prefix_reuse = true,
             },
         .sampling_defaults = SamplingDefaults(),
-        // API 0.3.3 requires a profile. 512-token passes beside decoders keep
-        // the 0.2 host's fixed decode-active budget; passes run unsplit.
-        .scheduling = {.pass_tokens = 512u,
+        // Prompts beside decoders take one prefill batch per pass: larger
+        // passes only queue more batches, smaller ones repeat each pass's
+        // expert reads. Passes run unsplit.
+        .scheduling = {.pass_tokens = model_->PrefillBatch(),
                        .max_layer_groups = 1u,
                        .max_yield_decode_width = 8u},
     };
